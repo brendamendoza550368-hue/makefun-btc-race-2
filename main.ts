@@ -6,11 +6,11 @@
 // loss punishes buy-and-hold (the house holder lost over 3% on the dev
 // day) and punishes a holder with no exit even more: it rides the late
 // slide all the way down. So this bot trades the bounce, not the day:
-//   entry - the price has fallen at least 2.0% under its trailing
+//   entry - the price has fallen at least 1.6% under its trailing
 //           240-bar high and the 5-bar momentum has turned back up:
 //           only a real washout counts, not the first wobble of a fall.
 //           The crowd over-sold, the fall has stalled, buy 97% of cash.
-//   exit  - take the bounce: sell at +2.0% over the entry close, which
+//   exit  - take the bounce: sell at +2.2% over the entry close, which
 //           pays the toll many times over. A stop 2.0% under the entry
 //           close cuts a dip that was really a cliff. A position still
 //           open after 600 bars is sold whenever it is at least 0.35%
@@ -24,10 +24,10 @@ import { runBars, type BarsState, type OrderInput } from './vendor/makefun-bars.
 
 const SYM = 'CBBTC';
 const HIGH_WIN = 240;
-const DIP_MIN = 0.020;
+const DIP_MIN = 0.016;
 const TURN_WIN = 5;
 const SPEND_FRAC = 0.97;
-const TAKE_PROFIT = 0.020;
+const TAKE_PROFIT = 0.022;
 const HARD_STOP = 0.020;
 const MAX_HOLD = 600;
 const STALE_MIN_GAIN = 0.0035;
